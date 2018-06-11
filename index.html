@@ -7,6 +7,7 @@ Javascript。
 ■改造履歴
 2017/05/04：初版リリース
 2017/05/019：＠ArcCosineさん、＠foooomioさんのリファクタ有り。ありがとうございます。
+2018/06/09：Vue.JSでリライト
 
  -->
 
@@ -28,42 +29,40 @@ Javascript。
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-<container id="app">
+  <container id="app">
+    <div>
+      <div class="panel" id="panel1">︎{{panel1}}</div>
+      <div class="panel" id="panel10">{{panel10}}</div>
+    </div>
 
-<div>
-  <div class="panel" id="panel1">︎{{panel1}}</div>
-  <div class="panel" id="panel10">{{panel10}}</div>
-</div>
-
-<div class="ui centered grid">
-  <div class="two wide tablet computer  center aligned padded column">
-    <button id="stopButton" v-model="stopButton" v-disable="stopButton" v-on:click="runStop()" class="ui fluid big blue button">STOP</button>
-  </div>
-</div>
-
-<div class="ui centered grid">
-  <div class="five wide tablet computer  center aligned padded column">
-    <button id="spinButton" v-model="spinButton" v-disable="spinButton" class="ui fluid red button" v-on:click="runSlot()">SPIN</button>  
-  </div>
-</div>
-
-<div class="ui centered grid">
-  <div class="nine wide tablet computer  center aligned padded column">
-    <div class="container">
-      <div class="bingo" v-bind:style="pStyle" v-bind:id="item" v-for="item in items">
-        {{ item }}
+    <div class="ui centered grid">
+      <div class="two wide tablet computer  center aligned padded column">
+        <button id="stopButton" v-model="stopButton" v-disable="stopButton" v-on:click="runStop()" class="ui fluid big blue button">STOP</button>
       </div>
     </div>
-  </div>
-</div>
 
-</div>
+    <div class="ui centered grid">
+      <div class="five wide tablet computer  center aligned padded column">
+        <button id="spinButton" v-model="spinButton" v-disable="spinButton" class="ui fluid red button" v-on:click="runSlot()">SPIN</button>  
+      </div>
+    </div>
 
-<div></br></br>
-    <div class="copy">By <a href="https://twitter.com/Fujiyama_Yuta">＠Fujiwara_Yuta</a>, Thanks to @Ishi </div>
-</div>
-</container>
+    <div class="ui centered grid">
+      <div class="nine wide tablet computer  center aligned padded column">
+        <div class="container">
+          <div class="bingo" v-bind:style="pStyle" v-bind:id="item" v-for="item in items">
+            {{ item }}
+          </div>
+        </div>
+      </div>
+    </div>
 
+    </div>
+
+    <div></br></br>
+        <div class="copy">By <a href="https://twitter.com/Fujiyama_Yuta">＠Fujiwara_Yuta</a>, Thanks to @Ishi </div>
+    </div>
+  </container>
 </body>
 <audio id="audio_drum" src="assets/audio/drumroll.wav"></audio>
 <audio id="audio_cymbal" src="assets/audio/cymbal.wav"></audio>
