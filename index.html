@@ -1,0 +1,71 @@
+<!-- 
+
+■BingoMachine
+75の数字をランダムで表示させるプログラム。
+Javascript。
+
+■改造履歴
+2017/05/04：初版リリース
+2017/05/019：＠ArcCosineさん、＠foooomioさんのリファクタ有り。ありがとうございます。
+
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta property="og:title" content="ビンゴマシーン" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="結婚式の二次会、会社のパーティーなどで無料で使えるビンゴマシーンです。" />
+  <meta name="keywords" content="ビンゴマシン,ビンゴマシーン,bingomachine,ビンゴ・マシーン,ビンゴ・マシン,結婚式二次会,クリスマスパーティー,ビンゴ,bigo,ビンゴ大会" />
+
+  <title>ビンゴマシン</title>
+  <link rel="stylesheet" type="text/css" href="assets/semantic/semantic.css">
+  <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<container id="app">
+
+<div>
+  <div class="panel" id="panel1">︎{{panel1}}</div>
+  <div class="panel" id="panel10">{{panel10}}</div>
+</div>
+
+<div class="ui centered grid">
+  <div class="two wide tablet computer  center aligned padded column">
+    <button id="stopButton" v-model="stopButton" v-disable="stopButton" v-on:click="runStop()" class="ui fluid big blue button">STOP</button>
+  </div>
+</div>
+
+<div class="ui centered grid">
+  <div class="five wide tablet computer  center aligned padded column">
+    <button id="spinButton" v-model="spinButton" v-disable="spinButton" class="ui fluid red button" v-on:click="runSlot()">SPIN</button>  
+  </div>
+</div>
+
+<div class="ui centered grid">
+  <div class="nine wide tablet computer  center aligned padded column">
+    <div class="container">
+      <div class="bingo" v-bind:style="pStyle" v-bind:id="item" v-for="item in items">
+        {{ item }}
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div></br></br>
+    <div class="copy">By <a href="https://twitter.com/Fujiyama_Yuta">＠Fujiwara_Yuta</a>, Thanks to @Ishi </div>
+</div>
+</container>
+
+</body>
+<audio id="audio_drum" src="assets/audio/drumroll.wav"></audio>
+<audio id="audio_cymbal" src="assets/audio/cymbal.wav"></audio>
+<script type="text/javascript" src="assets/js/bingo.js"></script>
+</html>
